@@ -7,11 +7,11 @@ DEB_FILE=protonmail-bridge_${VERSION}_amd64.deb
 export DEBIAN_FRONTEND=noninteractive
 
 # Install dependents
-apt update
-apt install -y --no-install-recommends socat pass ca-certificates
+apt-get update
+apt-get install -y --no-install-recommends socat pass ca-certificates
 
 # Build time dependencies
-apt install -y wget binutils xz-utils
+apt-get install -y wget binutils xz-utils
 
 # Repack deb (remove unnecessary dependencies)
 mkdir deb
@@ -31,8 +31,8 @@ cd ../
 apt-get install -y --no-install-recommends ./deb/${DEB_FILE}
 
 # Cleanup
-apt purge -y wget binutils xz-utils
-apt autoremove -y --purge
+apt-get purge -y wget binutils xz-utils
+apt-get autoremove -y --purge
 apt-get autoclean
 apt-get clean
 rm -rf /var/lib/apt/lists/*
