@@ -8,6 +8,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 # Install dependents
 apt-get update
+apt-get dist-upgrade -y
 apt-get install -y --no-install-recommends socat pass ca-certificates
 
 # Build time dependencies
@@ -16,7 +17,7 @@ apt-get install -y wget binutils xz-utils
 # Repack deb (remove unnecessary dependencies)
 mkdir deb
 cd deb
-wget -q https://protonmail.com/download/bridge/${DEB_FILE}
+wget -q https://proton.me/download/bridge/${DEB_FILE}
 ar x -v ${DEB_FILE}
 mkdir control
 tar zxvf control.tar.gz -C control
