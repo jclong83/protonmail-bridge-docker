@@ -1,5 +1,5 @@
-FROM ubuntu:jammy
-LABEL maintainer="Xiaonan Shen <s@sxn.dev>"
+FROM ubuntu:noble
+LABEL maintainer="James Long <james@jclong.net>"
 
 EXPOSE 25/tcp
 EXPOSE 143/tcp
