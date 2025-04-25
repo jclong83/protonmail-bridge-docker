@@ -23,6 +23,10 @@ COPY --from=build /protonmail.deb /tmp/protonmail.deb
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends /tmp/protonmail.deb socat pass libsecret-1-0 ca-certificates procps \
+    && apt-get full-upgrade -y \
+    && apt-get autoremove -y --purge \
+    && apt-get autoclean \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 CMD ["bash", "/protonmail/entrypoint.sh"]
